@@ -35,14 +35,17 @@ public class Brain : MonoBehaviour
 
     void Update()
     {
-        if (alive) return;
+        if(alive) return;
 
         Debug.DrawRay(eyes.transform.position, eyes.transform.forward * 10, Color.red, 10);
         seeGround = false;
         RaycastHit hit;
         if(Physics.Raycast(eyes.transform.position, eyes.transform.forward * 10, out hit))
         {
-            seeGround = true;
+            if(hit.collider.gameObject.tag == "platform")
+            {
+                seeGround = true;
+            }
         }
 
         timeAlive = PopulationManager.elapsed;
@@ -68,5 +71,4 @@ public class Brain : MonoBehaviour
         this.transform.Rotate(0, turn, 0);
 
     }
-}
 }
