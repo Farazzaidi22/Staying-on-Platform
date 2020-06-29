@@ -35,7 +35,7 @@ public class Brain : MonoBehaviour
 
     void Update()
     {
-        if(alive) return;
+        if(!alive) return;
 
         Debug.DrawRay(eyes.transform.position, eyes.transform.forward * 10, Color.red, 10);
         seeGround = false;
@@ -63,8 +63,8 @@ public class Brain : MonoBehaviour
         else
         {
             if (dna.GetGene(1) == 0) move = 1;
-            else if (dna.GetGene(2) == 1) turn = -90;
-            else if (dna.GetGene(3) == 2) turn = 90;
+            else if (dna.GetGene(1) == 1) turn = -90;
+            else if (dna.GetGene(1) == 2) turn = 90;
         }
 
         this.transform.Translate(0, 0, move * 0.1f);
