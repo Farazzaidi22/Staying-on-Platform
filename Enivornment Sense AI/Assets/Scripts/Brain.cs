@@ -35,7 +35,10 @@ public class Brain : MonoBehaviour
 
     void Update()
     {
-        if(!alive) return;
+        if (!alive)
+        {
+            return;
+        }
 
         Debug.DrawRay(eyes.transform.position, eyes.transform.forward * 10, Color.red, 10);
         seeGround = false;
